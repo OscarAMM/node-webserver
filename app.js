@@ -1,13 +1,12 @@
-const http = require('http');
+const express = require('express')
+const app = express()
 
 /**
- * @callback createServer 
- * This callback creates a webserver using node js function
- * @argument req This is the request from client
- * @argument res This is the server response
+ * @constant express This is the require (package/module) that's installed with express package
+ * @constant app This is a constant that refers to server initialization (express)
  */
-const server = http.createServer((req, res) => {
-    res.write('Hola Mundo');
-}).listen(8080);
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
 
-console.log(`Listening with port 8080`);
+app.listen(8080)
